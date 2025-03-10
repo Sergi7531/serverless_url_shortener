@@ -5,7 +5,7 @@ This is a simple URL shortener implemented using API Gateway, AWS Lambda, and Dy
 
 ## Diagram
 
-### Insert the diagram, max width 800px:
+
 
 ![Diagram](diagram.svg)
 
