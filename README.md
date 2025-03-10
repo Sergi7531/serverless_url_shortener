@@ -1,58 +1,32 @@
 
-# Welcome to your CDK Python project!
+# Serverless URL shortener
 
-This is a blank project for CDK development with Python.
+This is a simple URL shortener implemented using API Gateway, AWS Lambda, and DynamoDB.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Diagram
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+### Insert the diagram, max width 800px:
 
-To manually create a virtualenv on MacOS and Linux:
+![Diagram](diagram.svg)
 
-```
-$ python3 -m venv .venv
-```
+## Usage
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+### Deploy the stack
 
-```
-$ source .venv/bin/activate
+```bash
+cdk deploy
 ```
 
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
+### Create a short URL (POST):
+```bash
+curl -X POST https://<api-id>.execute-api.<region>.amazonaws.com/prod/shorten \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "url": "https://www.example.com"
+  }'
 ```
 
-At this point you can now synthesize the CloudFormation template for this code.
-
+### GET to the original URL
+```bash
+curl -I https://<api-id>.execute-api.<region>.amazonaws.com/prod/<short_url_code>
 ```
-$ cdk synth
-```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
