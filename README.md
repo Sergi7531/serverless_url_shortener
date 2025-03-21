@@ -7,7 +7,7 @@ This is a simple URL shortener implemented using API Gateway, AWS Lambda, and Dy
 
 
 
-![Diagram](diagram.svg)
+![Diagram](/Users/sergi/Downloads/diagram.svg)
 
 ## Usage
 
